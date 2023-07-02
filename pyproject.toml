@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "user-survey-dash"
+version = "0.1.0"
+description = ""
+authors = ["limstonestone <ehus1118@gmail.com>"]
+readme = "README.md"
+packages = [{include = "user_survey_dash"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[tool.poetry.group.dev.dependencies]
+numpy = "^1.25.0"
+pandas = "^2.0.3"
+matplotlib = "^3.7.1"
+seaborn = "^0.12.2"
+plotly = "^5.15.0"
+scikit-learn = "^1.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
