@@ -76,9 +76,9 @@ if st.sidebar.checkbox("커피 선호종류에 따른 데이터 확인"):
 
 
 st.subheader("유저 프로필")
-plot_user_profile(selected_df)
+plot_user_profile(selected_coffee_df)
 st.subheader("유저 별 커피 프로필")
-plot_user_coffee_info(selected_df)
+plot_user_coffee_info(selected_coffee_df)
 
 # gender group
 gender_groups = selected_df["성별"].unique()
