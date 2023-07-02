@@ -9,7 +9,7 @@ def load_data():
     """
     추후 구글시트(gspread) 와 연동 필요
     """
-    df = pd.read_csv("./data/0702_survey.csv")
+    df = pd.read_csv("./data/example_survey.csv")
 
     return df
 
