@@ -16,6 +16,26 @@ def load_data():
     return df
 
 
+# 한글폰트 적용
+import os
+import matplotlib.font_manager as fm  # 폰트 관련 용도 as fm
+
+
+@st.cache_data
+def fontRegistered():
+    font_dirs = [os.getcwd() + "/customFonts"]
+    font_files = fm.findSystemFonts(fontpaths=font_dirs)
+
+    for font_file in font_files:
+        fm.fontManager.addfont(font_file)
+    fm._load_fontmanager(try_read_cache=False)
+
+
+def unique(list):
+    x = np.array(list)
+    return np.unique(x)
+
+
 def preprocess(df):
     df = df.replace("캡슐 커피(네스프레소, 일리 등)", "캡슐 커피")
 

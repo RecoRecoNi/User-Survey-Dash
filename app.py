@@ -11,9 +11,11 @@ import streamlit_toggle as tog
 
 from utils import *
 
-rc("font", family="AppleGothic")
+import matplotlib.font_manager as fm
 
-plt.rcParams["axes.unicode_minus"] = False
+# rc("font", family="AppleGothic")
+# plt.rcParams["axes.unicode_minus"] = False
+
 
 st.set_page_config(
     page_title="Real-Time User Survey Dashboard",
@@ -23,6 +25,13 @@ st.set_page_config(
 
 st.title("Real-Time User Survey Dashboard")
 st.sidebar.title("원하는 필터를 적용하세요.")
+
+fontRegistered()
+# fontNames = [f.name for f in fm.fontManager.ttflist]
+fontNames = ["NanumGothic", "AppleGothic"]
+fontname = st.sidebar.selectbox("폰트 선택 (나눔 고딕 권장)", unique(fontNames))
+
+plt.rc("font", family=fontname)
 
 # load_data
 df = load_data()
