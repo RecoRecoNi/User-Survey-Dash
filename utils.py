@@ -1,7 +1,11 @@
+import os
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 import seaborn as sns
+import colorsys
+import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
+import matplotlib.font_manager as fm  # 폰트 관련 용도 as fm
 
 import streamlit as st
 from google.oauth2 import service_account
@@ -22,7 +26,7 @@ def run_query(query):
     rows = rows.fetchall()
     return rows
 
-def EDA(rows) -> pd.DataFrame:
+def preprocess(rows) -> pd.DataFrame:
 
     df = pd.DataFrame(rows).iloc[:, 3:]
 
@@ -56,6 +60,7 @@ def EDA(rows) -> pd.DataFrame:
     ]
 
     df = df.rename(columns = dict(zip(df.columns, rename_columns)))
+    df = df.replace("캡슐 커피(네스프레소, 일리 등)", "캡슐 커피")
 
     return df
 
@@ -63,7 +68,7 @@ def EDA(rows) -> pd.DataFrame:
 def load_sheets() -> pd.DataFrame:
     sheet_url = st.secrets["private_gsheets_url"]
     rows = run_query(f'SELECT * FROM "{sheet_url}"')
-    df = EDA(rows)
+    df = preprocess(rows)
     return df
 
 
@@ -75,11 +80,6 @@ def load_data():
     df = pd.read_csv("./data/example_survey.csv")
 
     return df
-
-
-# 한글폰트 적용
-import os
-import matplotlib.font_manager as fm  # 폰트 관련 용도 as fm
 
 
 @st.cache_data
@@ -95,12 +95,6 @@ def fontRegistered():
 def unique(list):
     x = np.array(list)
     return np.unique(x)
-
-
-def preprocess(df):
-    df = df.replace("캡슐 커피(네스프레소, 일리 등)", "캡슐 커피")
-
-    return df
 
 
 def filter_coffee(df: pd.DataFrame, prefer_coffee: str):
@@ -134,11 +128,6 @@ def filter_coffee(df: pd.DataFrame, prefer_coffee: str):
     columns = filter_cols + basic_columns
 
     return columns
-
-
-import matplotlib.colors as mcolors
-import colorsys
-
 
 def set_hls(c, dh=0, dl=0, ds=0, dalpha=0):
     """
@@ -268,6 +257,3 @@ def plot_user_coffee_info(df):
             )
 
     st.pyplot(fig)
-
-
-# def plot_user_coffee_info(df):
