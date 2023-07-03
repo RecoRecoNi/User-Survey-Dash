@@ -701,6 +701,51 @@ files = [
 gitdb = ">=4.0.1,<5"
 
 [[package]]
+name = "google-auth"
+version = "2.17.3"
+description = "Google Authentication Library"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*"
+files = [
+    {file = "google-auth-2.17.3.tar.gz", hash = "sha256:ce311e2bc58b130fddf316df57c9b3943c2a7b4f6ec31de9663a9333e4064efc"},
+    {file = "google_auth-2.17.3-py2.py3-none-any.whl", hash = "sha256:f586b274d3eb7bd932ea424b1c702a30e0393a2e2bc4ca3eae8263ffd8be229f"},
+]
+
+[package.dependencies]
+cachetools = ">=2.0.0,<6.0"
+pyasn1-modules = ">=0.2.1"
+rsa = {version = ">=3.1.4,<5", markers = "python_version >= \"3.6\""}
+six = ">=1.9.0"
+
+[package.extras]
+aiohttp = ["aiohttp (>=3.6.2,<4.0.0dev)", "requests (>=2.20.0,<3.0.0dev)"]
+enterprise-cert = ["cryptography (==36.0.2)", "pyopenssl (==22.0.0)"]
+pyopenssl = ["cryptography (>=38.0.3)", "pyopenssl (>=20.0.0)"]
+reauth = ["pyu2f (>=0.1.5)"]
+requests = ["requests (>=2.20.0,<3.0.0dev)"]
+
+[[package]]
+name = "gsheetsdb"
+version = "0.1.13.1"
+description = "Python DB-API and SQLAlchemy interface for Google Spreadsheets."
+optional = false
+python-versions = "*"
+files = [
+    {file = "gsheetsdb-0.1.13.1.tar.gz", hash = "sha256:d8c20db4f1521cf5c1eebdf2eeac91a7e726ba1ec03845e8dd35cfd49feebf88"},
+]
+
+[package.dependencies]
+google-auth = "*"
+moz_sql_parser = "*"
+requests = ">=2.20.0"
+six = "*"
+
+[package.extras]
+cli = ["docopt", "prompt_toolkit (>=2)", "pygments", "tabulate"]
+dev = ["coverage", "flake8", "nose", "pipreqs", "pytest (>=2.8)", "pytest-cov", "requests_mock", "twine"]
+sqlalchemy = ["sqlalchemy"]
+
+[[package]]
 name = "idna"
 version = "3.4"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -1398,6 +1443,88 @@ files = [
 ]
 
 [[package]]
+name = "mo-dots"
+version = "4.22.21108"
+description = "More Dots! Dot-access to Python dicts like Javascript"
+optional = false
+python-versions = "*"
+files = [
+    {file = "mo-dots-4.22.21108.tar.gz", hash = "sha256:f9f2f9a6e44e214959aecd55857b6df487b8e86daf51334e2e982d47ea33ed23"},
+]
+
+[package.dependencies]
+mo-future = "3.147.20327"
+mo-imports = "3.149.20327"
+
+[[package]]
+name = "mo-future"
+version = "3.147.20327"
+description = "More future! Make Python 2/3 compatibility a bit easier"
+optional = false
+python-versions = "*"
+files = [
+    {file = "mo-future-3.147.20327.tar.gz", hash = "sha256:4aafcf859e4657bc11b04ee9791321e2d44702604ae01cac7c412468cb6a513f"},
+]
+
+[[package]]
+name = "mo-imports"
+version = "3.149.20327"
+description = "More Imports! - Delayed importing"
+optional = false
+python-versions = "*"
+files = [
+    {file = "mo-imports-3.149.20327.tar.gz", hash = "sha256:32e3dc720c84765224d29ed7e9d6972a369d41d756e6f26ddb5b7aa01241331d"},
+]
+
+[package.dependencies]
+mo-future = "3.147.20327"
+
+[[package]]
+name = "mo-kwargs"
+version = "4.22.21108"
+description = "More KWARGS! Let call parameters override kwargs"
+optional = false
+python-versions = "*"
+files = [
+    {file = "mo-kwargs-4.22.21108.tar.gz", hash = "sha256:9c9d00ab86f1f75013193807d90cad17cbc515384cf3b17b8aff3104a300f7ce"},
+]
+
+[package.dependencies]
+mo-dots = "4.22.21108"
+mo-future = "3.147.20327"
+
+[[package]]
+name = "mo-logs"
+version = "4.23.21108"
+description = "More Logs! Structured Logging and Exception Handling"
+optional = false
+python-versions = "*"
+files = [
+    {file = "mo-logs-4.23.21108.tar.gz", hash = "sha256:de4136a7ce215ecbfd7a368588be0a3f1fd8a6521dc2d4aae57cc1c3ba299aab"},
+]
+
+[package.dependencies]
+mo-dots = "4.22.21108"
+mo-future = "3.147.20327"
+mo-imports = "3.149.20327"
+mo-kwargs = "4.22.21108"
+
+[[package]]
+name = "moz-sql-parser"
+version = "4.40.21126"
+description = "Extract Parse Tree from SQL"
+optional = false
+python-versions = "*"
+files = [
+    {file = "moz-sql-parser-4.40.21126.tar.gz", hash = "sha256:b3d37cc8ff118d86009aa12646791549537ec0ae8ac312efd4641289c8eee080"},
+]
+
+[package.dependencies]
+mo-dots = "4.22.21108"
+mo-future = "3.147.20327"
+mo-logs = "4.23.21108"
+
+[[package]]
 name = "nbclassic"
 version = "1.0.0"
 description = "Jupyter Notebook as a Jupyter Server extension."
@@ -1993,6 +2120,31 @@ files = [
 numpy = ">=1.16.6"
 
 [[package]]
+name = "pyasn1"
+version = "0.5.0"
+description = "Pure-Python implementation of ASN.1 types and DER/BER/CER codecs (X.208)"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,>=2.7"
+files = [
+    {file = "pyasn1-0.5.0-py2.py3-none-any.whl", hash = "sha256:87a2121042a1ac9358cabcaf1d07680ff97ee6404333bacca15f76aa8ad01a57"},
+    {file = "pyasn1-0.5.0.tar.gz", hash = "sha256:97b7290ca68e62a832558ec3976f15cbf911bf5d7c7039d8b861c2a0ece69fde"},
+]
+
+[[package]]
+name = "pyasn1-modules"
+version = "0.3.0"
+description = "A collection of ASN.1-based protocols modules"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,>=2.7"
+files = [
+    {file = "pyasn1_modules-0.3.0-py2.py3-none-any.whl", hash = "sha256:d3ccd6ed470d9ffbc716be08bd90efbd44d0734bc9303818f7336070984a162d"},
+    {file = "pyasn1_modules-0.3.0.tar.gz", hash = "sha256:5bd01446b736eb9d31512a30d46c1ac3395d676c6f3cafa4c03eb54b9925631c"},
+]
+
+[package.dependencies]
+pyasn1 = ">=0.4.6,<0.6.0"
+
+[[package]]
 name = "pycparser"
 version = "2.21"
 description = "C parser in Python"
@@ -2429,6 +2581,20 @@ pygments = ">=2.13.0,<3.0.0"
 
 [package.extras]
 jupyter = ["ipywidgets (>=7.5.1,<9)"]
+
+[[package]]
+name = "rsa"
+version = "4.9"
+description = "Pure-Python RSA implementation"
+optional = false
+python-versions = ">=3.6,<4"
+files = [
+    {file = "rsa-4.9-py3-none-any.whl", hash = "sha256:90260d9058e514786967344d0ef75fa8727eed8a7d2e43ce9f4bcf1b536174f7"},
+    {file = "rsa-4.9.tar.gz", hash = "sha256:e38464a49c6c85d7f1351b0126661487a7e0a14a50f1675ec50eb34d4f20ef21"},
+]
+
+[package.dependencies]
+pyasn1 = ">=0.1.3"
 
 [[package]]
 name = "scikit-learn"
@@ -3005,4 +3171,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "3.9.17"
-content-hash = "02ea441f246c0c1422ae65379b01977d8bf22783c2ae4cc1bc511753e25f4a5a"
+content-hash = "3be029f2f3a1faf1666fbf01e9d296388f060ccee3fce47ef12e727aad6d7136"

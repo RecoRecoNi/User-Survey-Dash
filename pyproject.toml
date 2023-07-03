@@ -8,6 +8,7 @@ packages = [{include = "user_survey_dash"}]
 
 [tool.poetry.dependencies]
 python = "3.9.17"
+gsheetsdb = "^0.1.13.1"
 
 
 [tool.poetry.group.dev.dependencies]

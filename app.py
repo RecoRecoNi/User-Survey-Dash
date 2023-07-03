@@ -18,7 +18,9 @@ st.title("Real-Time User Survey Dashboard")
 st.sidebar.title("원하는 필터를 적용하세요.")
 
 # load_data
-df = load_data()
+# df = load_data()
+df = load_sheets()
+# st.dataframe(df)
 
 # check box
 selected_gender = st.sidebar.multiselect("확인하고 싶은 성별을 선택하세요. (복수선택가능)", pd.unique(df["성별"]), default=["남성", "여성"])
