@@ -34,8 +34,8 @@ fontname = st.sidebar.selectbox("폰트 선택 (나눔 고딕 권장)", unique(f
 plt.rc("font", family=fontname)
 
 # load_data
-df = load_data()
-df = preprocess(df)
+
+df = load_sheets()
 
 
 # check box

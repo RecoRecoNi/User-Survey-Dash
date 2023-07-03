@@ -164,3 +164,4 @@ data/raw_survey.csv
 notebooks/test.ipynb
 *.DS_Store
 .vscode
+.streamlit/secrets.toml
